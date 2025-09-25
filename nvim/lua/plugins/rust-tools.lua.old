@@ -1,0 +1,24 @@
+return {
+    "simrat39/rust-tools.nvim",
+    config = function()
+        require("rust-tools").setup({
+            server = {
+                -- Additional LSP settings for rust-analyzer can go here
+                -- For example, enabling or disabling specific inlay hint types
+                settings = {
+                    ["rust-analyzer"] = {
+                        inlayHints = {
+                            enable = true,
+                            typeHints = true,
+                            parameterHints = true,
+                            chainingHints = true,
+                            closureCaptureHints = true,
+                            lifetimeElisionHints = true,
+                            bindingModeHints = true,
+                        },
+                    },
+                },
+            },
+        })
+    end,
+}
