@@ -18,7 +18,7 @@ return {
         --   auto_brackets = { "python" }
         -- }
         -- ```
-        opts = function()
+        opts = function(_, opts)
             -- Register nvim-cmp lsp capabilities
             vim.lsp.config("*", { capabilities = require("cmp_nvim_lsp").default_capabilities() })
 
@@ -26,6 +26,14 @@ return {
             local cmp = require("cmp")
             local defaults = require("cmp.config.default")()
             local auto_select = true
+
+            -- opts.snippet = {
+            --     expand = function(args)
+            --         require("luasnip").lsp_expand(args.body)
+            --     end,
+            -- }
+            -- table.insert(opts.sources, { name = "luasnip" })
+
             return {
                 auto_brackets = {}, -- configure any filetype to auto add brackets
                 completion = {
@@ -39,6 +47,7 @@ return {
                     ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
                     ["<C-d>"] = cmp.mapping.complete(),
                     ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                    -- ["<Esc>"] = cmp.mapping.close(),
 
                     --["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
                     --["<S-CR>"] = LazyVim.cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
@@ -51,8 +60,15 @@ return {
                     --end,
                 }),
                 sources = cmp.config.sources({
+                    { name = "snippy" },
                     { name = "lazydev" },
                     { name = "nvim_lsp" },
+                    {
+                        name = 'neocmakelsp',
+                        option = {},
+                        keyword_length = 2,
+                        priority = 50,
+                    },
                     { name = "path" },
                 }, {
                     { name = "buffer" },

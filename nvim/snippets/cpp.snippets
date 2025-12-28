@@ -1,0 +1,26 @@
+snippet !header
+    #ifndef WILT_${1:}
+    #define WILT_${1:}
+
+    #endif
+
+snippet !struct
+	struct ${1}{
+	};
+
+snippet !class
+	class ${1} {
+		// constructor and deconstructor
+		// ${1}() = delete;
+		// ~${1}() = delete;
+		// copy and copy assignment
+		// ${1}(const ${1}&) = delete;
+		// ${1}& operator=(const ${1}&) = delete;
+		// move and move assignment
+		// ${1}(${1}&&) = delete;
+		// ${1}& operator=(${1}&&) = delete;
+		private:
+		
+		public:
+
+	};

@@ -8,7 +8,7 @@ o.wrap = false
 o.swapfile = false
 o.showmode = false
 o.incsearch = true
-o.hlsearch = false
+o.hlsearch = true -- Highlight all words while searching
 o.ignorecase = true
 o.smartcase = true
 o.number = true             -- Print the line number in front of each line
@@ -36,6 +36,7 @@ o.splitbelow = true -- When on, splitting a window will put the new window below
 o.termguicolors = true
 o.number = true
 o.winborder = 'rounded'
+o.termguicolors = true
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
@@ -74,4 +75,6 @@ vim.cmd("set completeopt+=noselect")
 
 
 -- THEME
-vim.cmd("colorscheme tokyonight")
+-- vim.cmd("colorscheme tokyonight")
+-- require("tinted-colorscheme").setup("base24-hurtado")
+vim.cmd.colorscheme("base16-3024")

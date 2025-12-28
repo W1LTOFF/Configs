@@ -1,0 +1,6 @@
+--std=
+-Isrc/
+-Iinclude
+-Wall
+-Wextra
+-pedantic

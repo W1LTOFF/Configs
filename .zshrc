@@ -3,8 +3,15 @@
 
 PATH=$HOME/Programs/PrismLauncher:$PATH
 PATH=/home/wilt/.local/bin:$PATH
+PATH=/home/wilt/Programs/bin:$PATH
+PATH=/home/wilt/.cargo/bin:$PATH
+PATH=/home/wilt/Programs/scripts:$PATH
 
 export LIBVIRT_DEFAULT_URI="qemu:///system"
+export MANPAGER="nvim +Man!"
+
+export EDITOR=nvim
+export VISUAL=nvim
 
 source /home/wilt/Programs/1.4.321.1/setup-env.sh
 
@@ -111,12 +118,19 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #alias battery="for BAT_PATH in $(upower -e | grep BAT); do upower -i "$BAT_PATH"; done"
 #alias battery="clear; astal-battery -p"
+alias cfg="nvim ~/Configs/"
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT1"
-alias hyprcfg="nvim .config/hypr/hyprland.conf"
+alias hyprcfg="nvim ~/Config/hypr/hyprland.conf"
 alias gpuI="supergfxctl -m Integrated"
 alias gpuINow="supergfxctl -m Integrated; uwsm stop"
 alias gpuH="supergfxctl -m Hybrid"
 alias gpuHNow="supergfxctl -m Hybrid; reboot"
+alias netcheck="ping google.com -c 3"
+alias toggleTouchpad="~/Scripts/toggle-touchpad.zsh"
+alias ShutdownAndUpdate="sudo pacman -Syu; shutdown now"
+alias la="ls -a"
+alias size+="sudo du -sh * | sort -hr | head -n 10"
+
 
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh

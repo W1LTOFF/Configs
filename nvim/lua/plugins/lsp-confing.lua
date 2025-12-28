@@ -17,6 +17,7 @@ return {
     -- },
 
     config = function(_, opts)
+
         -- vim.lsp.config.rust_analyzer.setup(opts)
         -- vim.lsp.config.rust_analyzer.settings = {
         --     inlayHints = {
