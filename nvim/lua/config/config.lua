@@ -75,6 +75,6 @@ vim.cmd("set completeopt+=noselect")
 
 
 -- THEME
--- vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme tokyonight")
 -- require("tinted-colorscheme").setup("base24-hurtado")
-vim.cmd.colorscheme("base16-3024")
+-- vim.cmd.colorscheme("base16-3024")

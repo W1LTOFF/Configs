@@ -1,10 +1,11 @@
+# zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 PATH=$HOME/Programs/PrismLauncher:$PATH
 PATH=/home/wilt/.local/bin:$PATH
 PATH=/home/wilt/Programs/bin:$PATH
-PATH=/home/wilt/.cargo/bin:$PATH
+PATH=$HOME/.cargo/bin:$PATH
 PATH=/home/wilt/Programs/scripts:$PATH
 
 export LIBVIRT_DEFAULT_URI="qemu:///system"
@@ -13,7 +14,10 @@ export MANPAGER="nvim +Man!"
 export EDITOR=nvim
 export VISUAL=nvim
 
-source /home/wilt/Programs/1.4.321.1/setup-env.sh
+export CC=clang
+export CXX=clang++
+
+# source /home/wilt/Programs/1.4.321.1/setup-env.sh
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -131,12 +135,25 @@ alias ShutdownAndUpdate="sudo pacman -Syu; shutdown now"
 alias la="ls -a"
 alias size+="sudo du -sh * | sort -hr | head -n 10"
 
+# export NVM_LAZY_LOAD=true
+# export NVM_COMPLETION=true
 
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
-if uwsm check may-start && uwsm select; then
-	exec uwsm start default
-fi
+bindkey -v
+
+# autoload -Uz compinit
+# if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+#     compinit
+# else
+#     compinit -C
+# fi
+
+
+# if uwsm check may-start && uwsm select; then
+# 	exec uwsm start default
+# fi
+# zprof
 

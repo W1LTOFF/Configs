@@ -2,5 +2,6 @@
 -Isrc/
 -Iinclude
 -Wall
+-Werror
 -Wextra
 -pedantic
