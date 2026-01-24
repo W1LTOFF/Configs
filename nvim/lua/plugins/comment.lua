@@ -4,7 +4,7 @@ return {
         require('Comment').setup(
             {
                 opleader = {
-                    line = "<C-S-/>",
+                    line = "<C-/>",
                 },
                 toggler = {
                     line = "<C-/>",

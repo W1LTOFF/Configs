@@ -1,32 +1,77 @@
 # zmodload zsh/zprof
+
+git_prompt() {
+
+    local is_git
+
+    if [ -d .git ]; then
+        true
+    else
+        return
+    fi;
+
+
+    local branch
+    branch=$(git symbolic-ref --short HEAD)
+    # repo=$(git rev-parse --show-toplevel)
+    repo=$(basename $(git rev-parse --show-toplevel))
+    echo "git:${repo}(${branch})"   
+
+}
+
+# shell_prefix_prompt() {
+#     echo "$SHELL_PREFIX"
+# }
+
+
+# dev_prompt() {
+    # local 
+# }
+
+# export SHELL_PREFIX=""
+export EDITOR="nvim"
+export TERMINAL="ghostty"
+export MANPAGER="nvim +Man!"
+export VISUAL="nvim"
+export CC="clang"
+export CXX="clang++"
+
+PS1=$'%B%F{red}%m%F{green}@%F{blue}%n%F{green}:%f%/%b %F{red}$(git_prompt)\n%(?.%F{green}.%F{red})${SHELL_PREFIX}->%f '
+
+# fpath=(${(uo)fpath})
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-PATH=$HOME/Programs/PrismLauncher:$PATH
-PATH=/home/wilt/.local/bin:$PATH
-PATH=/home/wilt/Programs/bin:$PATH
-PATH=$HOME/.cargo/bin:$PATH
-PATH=/home/wilt/Programs/scripts:$PATH
+PATH=~/Scripts/:$PATH
+# PATH=$HOME/Programs/PrismLauncher:$PATH
+# PATH=/home/wilt/.local/bin:$PATH
+# PATH=/home/wilt/Programs/bin:$PATH
+# PATH=$HOME/.cargo/bin:$PATH
+# PATH=/home/wilt/Programs/scripts:$PATH
 
-export LIBVIRT_DEFAULT_URI="qemu:///system"
-export MANPAGER="nvim +Man!"
+# export LIBVIRT_DEFAULT_URI="qemu:///system"
+# export MANPAGER="nvim +Man!"
 
-export EDITOR=nvim
-export VISUAL=nvim
+# export EDITOR=nvim
+# export VISUAL=nvim
 
-export CC=clang
-export CXX=clang++
+# export CC=clang
+# export CXX=clang++
 
 # source /home/wilt/Programs/1.4.321.1/setup-env.sh
 
 # Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# source /etc/zshrc
+# source /nix/store/*oh-my-zsh*/
+
+# export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -134,15 +179,27 @@ alias toggleTouchpad="~/Scripts/toggle-touchpad.zsh"
 alias ShutdownAndUpdate="sudo pacman -Syu; shutdown now"
 alias la="ls -a"
 alias size+="sudo du -sh * | sort -hr | head -n 10"
+alias nixcfg="sudo -E nvim /etc/nixos/"
+alias nixrebuild="sudo nixos-rebuild switch"
+alias nixupdate="sudo nix-channel --update; sudo nix flake update; sudo nixos-rebuild switch"
+alias p="nvim ~/ALL/NewDocument.txt"
+alias dev="SHELL_PREFIX=\"[dev]\" nix develop -c zsh"
 
 # export NVM_LAZY_LOAD=true
 # export NVM_COMPLETION=true
 
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
-bindkey -v
+source /etc/profiles/per-user/wilt/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source /etc/profiles/per-user/wilt/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source /nix/store/*zsh-autocomplete*/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+
+# source /nix/store/sqcv541k4mgqws8d25ahgg2r1fdfmix2-zsh-autocomplete-25.03.19/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+# source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+#
+# bindkey -v
 
 # autoload -Uz compinit
 # if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
@@ -151,6 +208,7 @@ bindkey -v
 #     compinit -C
 # fi
 
+# compinit -C
 
 # if uwsm check may-start && uwsm select; then
 # 	exec uwsm start default

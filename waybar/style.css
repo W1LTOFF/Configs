@@ -1,13 +1,17 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
+    /* font-family: FiraCodeNF-Reg; */
     font-size: 13px;
-    /* border-radius: 4x; */
+    /* border-radius: unset; */
+    /* border-radius: 10px; */
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    /* opacity: 1; */
+    /* background-color: rgba(43, 48, 59, 0.5); */
+    background-color: unset;
+    /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -38,8 +42,10 @@ window#waybar.chromium {
 button {
     /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
+    /* background-color: #000000 */
     /* Avoid rounded borders under each button name */
     border: none;
+    /* border: 1px solid red; */
     border-radius: 0;
 }
 
@@ -50,18 +56,46 @@ button:hover {
 }
 
 /* you can set a style on hover for any module like this */
-#pulseaudio:hover {
-    background-color: #a37800;
+/* #pulseaudio:hover { */
+/* background-color: #a37800; */
+/* } */
+
+#workspaces {
+    /* border: red solid 1px; */
+    /* border: none; */
+    margin-left: 1px;
+    border-radius: 0px 0px 10px 10px;
+    /* margin-left: 0px; */
+    background-color: #000000;
 }
 
 #workspaces button {
+    border: 1px transparent solid;
+    margin: 0px 2px;
+    border-radius: 0px 0px 10px 10px;
+    /* border: 1px solid red; */
     padding: 0 5px;
-    background-color: transparent;
+    background-color: #000000;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    /* background-color: transparent; */
     color: #ffffff;
 }
 
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.active {
+    /* background-color: #; */
+    /* opacity: 1; */
+
+
+    /* border: 1px solid #ffffff; */
+    /* border-radius: 4px; */
+    /* box-shadow: 1px 0px #ffffff, -1px 0px #ffffff; */
+
+    border: 1px solid #ffffff;
+    border-top: none;
 }
 
 #workspaces button.focused {
@@ -99,14 +133,25 @@ button:hover {
     color: #ffffff;
 }
 
+#window {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0px 1rem;
+    border-radius: 0px 0px 10px 10px;
+    /* margin: 0px 4pax; */
+    /* background: ; */
+}
+
 #window,
 #workspaces {
-    margin: 0 4px;
+    margin: unset;
+    /* margin: 0 4px; */
+    /* border: 1px solid red; */
 }
+
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left>widget:first-child>#workspaces {
-    margin-left: 0;
+    /* margin-left: 0; */
 }
 
 /* If workspaces is the rightmost module, omit right margin */
@@ -114,8 +159,37 @@ button:hover {
     margin-right: 0;
 }
 
+.modules-left {
+    background-color: #000000;
+    border-radius: 0px 0px 10px 0px;
+    /* border: 1px red solid; */
+    /* border: none; */
+}
+
+.modules-right {
+    background-color: #000000;
+    border-radius: 0px 0px 0px 10px;
+    /* border: 1px red solid; */
+    /* border: none; */
+}
+
+.modules-right>*>* {
+    border-radius: 0px 0px 10px 10px;
+    border: 1px solid transparent;
+}
+
+.modules-right>*>#tray:hover {
+    border: 1px solid transparent;
+}
+
+.modules-right>*>*:hover {
+    /* background-color: #ffffff; */
+    border: 1px solid #ffffff;
+    border-top: none;
+}
+
 #clock {
-    background-color: #64727D;
+    background-color: #000000;
 }
 
 #battery {
@@ -152,18 +226,22 @@ button:hover {
 }
 
 #power-profiles-daemon.performance {
-    background-color: #f53c3c;
+    /* background-color: #f53c3c; */
+    background-color: #000000;
     color: #ffffff;
 }
 
 #power-profiles-daemon.balanced {
-    background-color: #2980b9;
+    /* background-color: #2980b9; */
+    background-color: #000000;
     color: #ffffff;
 }
 
 #power-profiles-daemon.power-saver {
-    background-color: #2ecc71;
-    color: #000000;
+    /* background-color: #2ecc71; */
+    background-color: #000000;
+    color: #ffffff;
+    /* color: #000000; */
 }
 
 label:focus {
@@ -171,24 +249,23 @@ label:focus {
 }
 
 #cpu {
-    background-color: #2ecc71;
-    color: #000000;
+    background-color: #000000;
 }
 
 #memory {
-    background-color: #9b59b6;
+    background-color: #000000;
 }
 
 #disk {
-    background-color: #964B00;
+    background-color: #000000;
 }
 
 #backlight {
-    background-color: #90b1b1;
+    background-color: #000000;
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: #000000;
 }
 
 #network.disconnected {
@@ -196,8 +273,9 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    /* background-color: #f1c40f; */
+    background-color: #000000;
+    /* color: #000000; */
 }
 
 #pulseaudio.muted {
@@ -229,7 +307,7 @@ label:focus {
 }
 
 #temperature {
-    background-color: #f0932b;
+    background-color: #000000;
 }
 
 #temperature.critical {
@@ -237,7 +315,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: #000000;
 }
 
 #tray>.passive {
@@ -276,8 +354,8 @@ label:focus {
 }
 
 #language {
-    background: #00b093;
-    color: #740864;
+    background: #000000;
+    color: #ffffff;
     padding: 0 5px;
     margin: 0 5px;
     min-width: 16px;
@@ -327,3 +405,8 @@ label:focus {
 #privacy-item.audio-out {
     background-color: #0069d4;
 }
+
+/* * { */
+/*     color: #ffffff; */
+/*     background-color: #000000; */
+/* } */
