@@ -12,10 +12,11 @@ vim.lsp.config("qmlls", {
 })
 vim.lsp.enable("qmlls")
 
-vim.lsp.config("bashls", {
-    filetypes = { "sh", "zsh" }
-})
-vim.lsp.enable("bashls")
+-- vim.lsp.config("bashls", {
+--     filetypes = { "sh", "zsh" }
+-- })
+-- vim.lsp.enable("bashls")
+vim.lsp.enable("fish_lsp")
 
 vim.lsp.enable("clangd")
 vim.lsp.enable("rust_analyzer")

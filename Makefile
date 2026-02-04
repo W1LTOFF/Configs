@@ -1,4 +1,7 @@
-all: _zsh _hypr _nvim _rofi _sway _waybar
+all: _fish _hypr _nvim _rofi _sway _waybar _kitty
+
+_fish:
+	ln -s $(shell pwd)/fish ~/.config/
 
 _hyprland:
 	-mkdir ~/.config/hypr/
@@ -30,5 +33,8 @@ _sway:
 _waybar:
 	-ln -s $(shell pwd)/waybar ~/.config/
 
-clean:
-	rm -rf ~/.zshrc ~/.config/nvim/ ~/.config/rofi/ ~/.config/hypr/
+_kitty:
+	ln -s $(shell pwd)/kitty ~/.config/
+
+# clean:
+# 	-rm ~/.config/fish ~/.config/nvim ~/.config/rofi ~/.config/hypr ~/.config/sway

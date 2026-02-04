@@ -1,7 +1,3 @@
-return {
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        opts = { style = "moon" },
-    },
-}
+vim.pack.add({
+	{ src = "https://github.com/folke/tokyonight.nvim" }, -- colorsceme
+})

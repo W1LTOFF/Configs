@@ -1,7 +1,13 @@
-return {
-    'windwp/nvim-ts-autotag',
-    ft = { 'html', 'javascriptreact', 'typescriptreact' },
-    config = function()
-        require('nvim-ts-autotag').setup()
-    end,
-}
+vim.pack.add({
+	{ src = "https://github.com/windwp/nvim-ts-autotag" },
+})
+
+require("nvim-ts-autotag").setup({
+	opts = {
+		-- Defaults
+		enable_close = true,    -- Auto close tags
+		enable_rename = true,   -- Auto rename pairs of tags
+		enable_close_on_slash = false -- Auto close on trailing </
+	},
+	ft = { "html", "javascript", "typescript", "jsx", "tsx", "vue", "svelte" },
+})

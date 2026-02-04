@@ -1,12 +1,20 @@
-return {
-    "rmagatti/auto-session",
-    lazy = false,
+vim.pack.add({
+	{ src = "https://github.com/rmagatti/auto-session" },
+})
 
-    ---enables autocomplete for opts
-    ---@module "auto-session"
-    ---@type AutoSession.Config
-    opts = {
-        suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-        -- log_level = 'debug',
-    },
-}
+require("auto-session").setup({
+	enabled = true,
+	auto_save = true,
+	auto_restore = true,
+	suppressed_dirs = {
+		"~/",
+		"~/Downloads",
+		"~/Projects",
+		"/",
+	},
+	session_lens = {
+		picker = "telescope",
+		load_on_setup = true,
+	},
+
+})
