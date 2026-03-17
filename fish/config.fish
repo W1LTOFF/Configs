@@ -1,18 +1,26 @@
 # @fish-lsp-enable
+
+if status is-login
+    if test $(tty) = /dev/tty1
+        start-hyprland
+    end
+end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
-	set -x PATH ~/Scripts/ $PATH
+    set -x PATH ~/Scripts/ $PATH
 
     set -x fish_greeting ""
-	set -x EDITOR "nvim"
-	set -x TERMINAL "kitty"
-	set -x VISUAL "nvim"
-	set -x MANPAGER "nvim +Man!"
-	set -x CC "clang"
-	set -x CXX "clang++"
-
-
+    set -x EDITOR nvim
+    set -x TERMINAL kitty
+    set -x VISUAL nvim
+    set -x MANPAGER "nvim +Man!"
+    set -x CC clang
+    set -x CXX "clang++"
+    set -x GTK_IM_MODULE fcitx
+    set -x QT_IM_MODULE fcitx
+    # set -x SHELL_PREFIX "╰"
 
     abbr -a cfg "nvim ~/Configs/"
     abbr -a size+ "sudo du -sh {*,.*} | sort -hr | head -n 10"
@@ -20,6 +28,6 @@ if status is-interactive
     abbr -a nixrebuild "sudo nixos-rebuild switch"
     abbr -a nixupdate "sudo nix-channel --update; sudo nix flake update; sudo nixos-rebuild switch"
     abbr -a p "nvim ~/ALL/NewDocument.txt"
-    abbr -a dev "SHELL_PREFIX=\"[dev]\" nix develop -c fish"
+    abbr -a dev "SHELL_PREFIX=\"dev\" nix develop -c fish"
 
 end

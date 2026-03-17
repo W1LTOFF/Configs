@@ -34,8 +34,8 @@
         // "battery#bat2",
         "battery",
         "clock",
-        "tray",
-        "hyprland/language"
+        "tray"
+        // "hyprland/language"
         // "custom/power"
     ],
     // Modules configuration
@@ -168,10 +168,10 @@
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% {icon}",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        "format-good": "", // An empty format will hide the module
+        // "format-good": "", // An empty format will hide the module
         "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
